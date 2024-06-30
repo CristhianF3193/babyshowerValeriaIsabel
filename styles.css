@@ -1,17 +1,47 @@
-body {
+body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url('imagen2.png');
-    background-size: contain;  /* Cambiado de cover a contain */
-    background-repeat: no-repeat;  /* Asegurar que la imagen no se repita */
-    background-position: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative;  /* Asegurarse de que la superposición se posicione sobre el cuerpo */
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin perder proporción */
+}
+
+/* Usa pseudoelementos para crear las barras de color */
+.image-container::before,
+.image-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-color: #FFF5EC;
+}
+
+.image-container::before {
+    height: 10vh; /* Ajusta esta altura según tu preferencia */
+    top: 0;
+    left: 0;
+}
+
+.image-container::after {
+    height: 10vh; /* Ajusta esta altura según tu preferencia */
+    bottom: 0;
+    left: 0;
 }
 
 .overlay {
