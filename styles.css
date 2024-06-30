@@ -8,7 +8,7 @@ body, html {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative;
+    background-color: #FFF5EC;  /* Asegurarse de que el color del fondo está en el body */
 }
 
 .image-container {
@@ -23,25 +23,24 @@ body, html {
     object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin perder proporción */
 }
 
-/* Usa pseudoelementos para crear las barras de color */
+/* Usa pseudoelementos para crear las barras de color en la parte superior e inferior */
 .image-container::before,
 .image-container::after {
     content: '';
     position: absolute;
     width: 100%;
+    height: inset(0); /* Ajusta la posición superior e inferior */
+    z-index: 1; /* Para asegurar que estén sobre la imagen */
     background-color: #FFF5EC;
+    pointer-events: none; /* Para asegurarse de que no interfieren con eventos del ratón */
 }
 
 .image-container::before {
-    height: 10vh; /* Ajusta esta altura según tu preferencia */
     top: 0;
-    left: 0;
 }
 
 .image-container::after {
-    height: 10vh; /* Ajusta esta altura según tu preferencia */
     bottom: 0;
-    left: 0;
 }
 
 .overlay {
@@ -51,8 +50,25 @@ body, html {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 2; /* Asegurarse de que la superposición esté sobre la imagen */
 }
 
 audio {
     display: none;
+}
+
+.color-bar {
+    width: 100%;
+    height: 10vh; /* Ajusta esta altura según tu preferencia */
+    background-color: #FFF5EC;
+    position: absolute;
+    z-index: 1;
+}
+
+.color-bar.top {
+    top: 0;
+}
+
+.color-bar.bottom {
+    bottom: 0;
 }
