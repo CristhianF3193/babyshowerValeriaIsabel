@@ -11,6 +11,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 0;
+    background: linear-gradient(to bottom, #ffffff, #ffffff, #FFF5EC); /* Gradiente desde blanco a #FFF5EC */
 }
 
 .fondo img {
