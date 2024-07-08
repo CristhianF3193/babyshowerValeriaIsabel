@@ -11,6 +11,8 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;  // Añadido para asegurar que la superposición se posicione sobre el cuerpo
+    border: 5px solid #333; /* Agrega un borde de 5px color gris oscuro */
+    box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño total */
 }
 
 .overlay {
